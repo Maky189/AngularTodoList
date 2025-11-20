@@ -1,0 +1,16 @@
+<h1>My ToDo List</h1>
+
+<div class="form">
+    <input id="input" type="text" placeholder="Write your todo" #taskInput>
+    <button id="button" class="button" (click)="addTask(taskInput.value); taskInput.value = ''">Add ToDo</button>
+</div>
+
+<ul id="todo-list">
+    <li *ngFor="let t of tasks; let i = index" [class.completed]="t.done">
+        <span>{{ t.text }}</span>
+        <div class="actions">
+            <button (click)="toggleDone(t)">done</button>
+            <button (click)="deleteTask(t)">X</button>
+        </div>
+    </li>
+</ul>
